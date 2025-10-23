@@ -1,0 +1,207 @@
+<!doctype html><html lang="es"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Carta para ella — Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff7f9;
+      --accent:#e07a9d;
+      --muted:#6b6b6b;
+      --paper:#fff8ef;
+      --glass: rgba(255,255,255,0.55);
+    }
+    *{box-sizing:border-box}
+    body{font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,var(--bg),#fff); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:40px;}
+
+    .container{width:100%;max-width:900px}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#ffdfe9,#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(224,122,157,0.12);font-weight:600;color:var(--accent)}
+    h1{font-size:18px;margin:0;color:#3a3a3a}
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn{background:var(--glass);border:1px solid rgba(0,0,0,0.06);padding:8px 12px;border-radius:10px;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,#fff,#fff);border:1px solid rgba(224,122,157,0.15);box-shadow:0 6px 30px rgba(224,122,157,0.06)}
+
+    .preview{display:grid;grid-template-columns:1fr;gap:18px}
+
+    /* Card wrapper */
+    .card{background:transparent;padding:22px;border-radius:16px;}
+
+    /* Toggle */
+    .toggle{display:inline-flex;background:rgba(255,255,255,0.6);border-radius:999px;padding:4px;border:1px solid rgba(0,0,0,0.05)}
+    .toggle button{all:unset;padding:8px 12px;border-radius:999px;cursor:pointer}
+    .toggle .active{background:linear-gradient(90deg,#fff,#fff);box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+
+    /* Paper style */
+    .paper{
+      background:linear-gradient(180deg,var(--paper),#fff);
+      padding:36px 40px;border-radius:12px;box-shadow:0 18px 50px rgba(12,12,12,0.08);position:relative;min-height:340px;
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    .paper::after{content:"";position:absolute;inset:12px;border-radius:10px;pointer-events:none;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));mix-blend-mode:overlay}
+    .stationery-title{font-family:'Great Vibes', cursive;font-size:48px;color:var(--accent);margin:0 0 10px}
+    .paper .meta{font-size:13px;color:var(--muted);margin-bottom:18px}
+    .paper .letter{font-size:18px;line-height:1.6;color:#3b3b3b;font-family: Georgia, 'Times New Roman', serif;}
+
+    /* Modern style */
+    .modern{
+      background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));padding:28px;border-radius:14px;border:1px solid rgba(0,0,0,0.05);min-height:320px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;box-shadow:0 10px 40px rgba(6,6,6,0.04)
+    }
+    .modern .letter{max-width:700px;text-align:center;font-size:18px;line-height:1.6;color:#333}
+    .modern .signature{font-weight:600;margin-top:10px;color:var(--accent)}
+
+    /* Spotify area */
+    .spotify{margin-top:12px;display:flex;gap:8px;align-items:center}
+    .spotify input{padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);min-width:240px}
+    .spotify .embed{width:100%;max-width:660px;height:80px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);overflow:hidden}
+
+    footer{margin-top:14px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* small screens */
+    @media (max-width:700px){body{padding:18px}.logo{display:none}.spotify input{min-width:120px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">❤</div>
+        <div>
+          <h1>Carta para ella — preview</h1>
+          <div style="font-size:12px;color:var(--muted)">Romántico • Minimalista — incluye dos estilos</div>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="toggle" role="tablist" aria-label="Seleccionar estilo">
+          <button id="btn-paper" class="">Estilo Papel</button>
+          <button id="btn-modern" class="active">Estilo Moderno</button>
+        </div>
+        <button class="btn primary" id="download">Descargar HTML</button>
+      </div>
+    </header>
+
+    <main class="preview">
+      <div class="card">
+        <!-- Paper style -->
+        <section id="paper" class="paper" style="display: none;">
+          <div class="stationery-title">Para ti</div>
+          <div class="meta">Fecha: <span id="date">22 de octubre de 2025</span></div>
+          <article class="letter" id="paper-text" style="outline: currentcolor;">
+            <!-- EDITAR AQUÍ: carta estilo papel (cursiva en fuente serif) -->
+            Querida [nombre],
+
+            <br><br>
+            Desde la primera vez que te vi, mi mundo empezó a tener otro color. No es solo tu sonrisa —es la forma en que todo alrededor cobra sentido cuando estás cerca. No sé si esto es una locura o la verdad más pura que he sentido, pero quiero compartirla contigo.
+
+            <br><br>
+            Ojalá puedas leer estas palabras con calma. Aquí te dejo una canción que me recuerda a ti:
+          </article>
+
+          <div class="spotify">
+            <input id="spotify-input" placeholder="Pega aquí el link de compartir de Spotify (ej. https://open.spotify.com/track/...)">
+            <button class="btn" id="apply-spotify">Mostrar</button>
+          </div>
+          <div id="spotify-embed" style="margin-top:12px"></div>
+        </section>
+
+        <!-- Modern style -->
+        <section id="modern" class="modern" style="display: block;">
+          <div class="letter" id="modern-text" style="outline: currentcolor;">Mi ojitos bonitos,<div><br>
+            De algo sirvió no haber ido a la uni, ahora tengo tiempo para decirte algo que desde hace tiempo quería escribirte pero nomás no hallaba el momento en la mañana y en la noche me quedaba dormida.&nbsp;</div><div>Siempre pienso muchísimo en ti, y ni se diga en la noche, como que se potencia esto, yo creo que es porque vengo de besarte, de tocarte y de ver tu carita y escuchar esa risa que tanto me gusta, aparte de escuchar tu voz que sin duda alguna se ha convertido en top 3 sonidos favoritos.&nbsp;</div><div>Hay veces que trato de poner atención a la clase, pero digo "qué estoy haciendo escuchando a un tipo hablar de la Ley Federal del Trabajo, si puedo estar estudiando dibujo para hacerte el retrato más hermoso que hayas visto", el tuyo, obvio, por si quedaba duda, o "en vez de estar leyendo la fracción XI del artículo 8 de la Ley General de Títulos y Operaciones de Crédito, debería estar tomando un curso de poesía para escribirte todos los días los versos más lindos que jamás hayas leído en tu vida". Y es que me dan ganas de todo, te veo y no puedo creer lo afortunada que soy, te doy la mano y sigo preguntándome si esto es real, recibo una noti de insta y resulta que es tuya y me sigo emocionando como hace 6 meses, te juro que no sé qué me has hecho, pero me traes enamoradísima. La forma en que me ves, en que me besas, en que me buscas, cómo eres conmigo... algo hice bien, no sé cómo es que te tengo, pero te quiero por mucho tiempo.&nbsp;</div><div>El otro día me dijiste que no me querías perder, yo tampoco te quiero soltar, es mucho el amor que tengo y te quiero dar, por eso me pregunté todo el día de ayer... ¿será que aún te quiero?, qué lastima para los que no tienen esa palabra en su idioma, se me hace tan bonita que poder decírtela todos los días lo hace aún más increíble. Te extraño, siempre que te escribo lo hago extrañándote, pero ya qué, es algo bueno supongo.<br><div class="signature">te... quiero:)</div>
+          </div></div>
+
+          <div class="spotify">
+            <input id="spotify-input-2" placeholder="Link de Spotify para compartir">
+            <button class="btn" id="apply-spotify-2">Mostrar</button>
+          </div>
+          <div id="spotify-embed-2" style="margin-top:12px">
+<iframe src="https://open.spotify.com/embed/playlist/4394tMjf6hIzeufJKuvlmC" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+        </section>
+
+      </div>
+
+      <footer>
+        Puedes editar la carta directamente en el HTML (ver comentarios) o usar los campos de Spotify para incrustar una pista.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Fecha automática
+    document.getElementById('date').textContent = new Date().toLocaleDateString('es-ES', {year:'numeric', month:'long', day:'numeric'});
+
+    // Toggle styles
+    const btnPaper = document.getElementById('btn-paper');
+    const btnModern = document.getElementById('btn-modern');
+    const paper = document.getElementById('paper');
+    const modern = document.getElementById('modern');
+
+    btnPaper.addEventListener('click', ()=>{
+      paper.style.display='block'; modern.style.display='none';
+      btnPaper.classList.add('active'); btnModern.classList.remove('active');
+    });
+    btnModern.addEventListener('click', ()=>{
+      paper.style.display='none'; modern.style.display='block';
+      btnModern.classList.add('active'); btnPaper.classList.remove('active');
+    });
+
+    // Spotify embed helper: accept share link or track/playlist link and build embed
+    function spotifyEmbedFromLink(link){
+      if(!link) return '';
+      // Common Spotify share links look like https://open.spotify.com/track/{id}
+      // We want to convert to embed: https://open.spotify.com/embed/track/{id}
+      try{
+        const url = new URL(link.trim());
+        const parts = url.pathname.split('/').filter(Boolean); // e.g. ["track","{id}"]
+        if(parts.length>=2){
+          const type = parts[0];
+          const id = parts[1].split('?')[0];
+          return `\n<iframe src="https://open.spotify.com/embed/${type}/${id}" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+        }
+      }catch(e){
+        // if the user pasted a spotify URI like spotify:track:ID
+        const uriMatch = link.match(/spotify:(track|playlist|album):([A-Za-z0-9]+)/);
+        if(uriMatch) return `\n<iframe src="https://open.spotify.com/embed/${uriMatch[1]}/${uriMatch[2]}" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+      }
+      return '';
+    }
+
+    document.getElementById('apply-spotify').addEventListener('click', ()=>{
+      const link = document.getElementById('spotify-input').value;
+      const embed = spotifyEmbedFromLink(link);
+      document.getElementById('spotify-embed').innerHTML = embed || '<div style="color:var(--muted);font-size:14px">Link no válido. Pega el enlace de compartir de Spotify (Open > Compartir > Copiar enlace).</div>';
+    });
+    document.getElementById('apply-spotify-2').addEventListener('click', ()=>{
+      const link = document.getElementById('spotify-input-2').value;
+      const embed = spotifyEmbedFromLink(link);
+      document.getElementById('spotify-embed-2').innerHTML = embed || '<div style="color:var(--muted);font-size:14px">Link no válido. Pega el enlace de compartir de Spotify (Open > Compartir > Copiar enlace).</div>';
+    });
+
+    // Download HTML file
+    document.getElementById('download').addEventListener('click', ()=>{
+      const html = `<!doctype html>${document.documentElement.outerHTML}`;
+      const blob = new Blob([html], {type:'text/html;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'carta_para_ella.html'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    // Small helper: allow quick editing inside the page by double-clicking the letter sections
+    function makeEditable(id){
+      const el = document.getElementById(id);
+      el.addEventListener('dblclick', ()=>{
+        el.setAttribute('contenteditable','true');
+        el.focus();
+        el.style.outline='2px dashed rgba(224,122,157,0.2)';
+      });
+      el.addEventListener('blur', ()=>{ el.removeAttribute('contenteditable'); el.style.outline='none'; });
+    }
+    makeEditable('paper-text');
+    makeEditable('modern-text');
+
+  </script>
+
+
+</body></html>
